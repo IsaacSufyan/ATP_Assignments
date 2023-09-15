@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">29867_Sufyan_Sattar_ATP_Assignments</string>
+    <string name="sufyan_sattar">Sufyan Sattar</string>
+    <string name="sr_consultant_developer">Senior Consultant Mobile App Developer</string>
+    <string name="professional_summary">Professional Summary</string>
+    <string name="professional_summary_details">
+        Hi, I\'m Sufyan Sattar, Sr. Software Engineering having 5 years of experience in Android and Java Spring Boot.\n\n
+        I also have hand-on experience on Microservices and Cloud. I did work on front-end with Angular,
+        but right now I\'m learning react for front-end development.\n\n
+        My core specialization is in Android, doing work for open source contribution, write blogs, helps through Kotlin official Channels, and be a part of international community.\n\n
+        I\'m not a domain or stack specific Software Engineer. Its my brief introduction.
+    </string>
+    <string name="experiences">Experiences</string>
+    <string name="skills">Skills</string>
+    <string name="language">Languages</string>
+    <string name="hobbies">Hobbies</string>
+</resources>
