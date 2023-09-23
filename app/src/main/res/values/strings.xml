@@ -14,4 +14,8 @@
     <string name="skills">Skills</string>
     <string name="language">Languages</string>
     <string name="hobbies">Hobbies</string>
+    <string name="profile">Profile</string>
+    <string name="menu">Menu</string>
+    <string name="pakistan">Pakistan</string>
+    <string name="follow">Follow</string>
 </resources>

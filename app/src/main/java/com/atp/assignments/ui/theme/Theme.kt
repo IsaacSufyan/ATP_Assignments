@@ -11,13 +11,15 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 
 private val darkColorScheme = darkColors(
-    primary = DarkPurple,
-    secondary = LightPurple,
+    primary = LightGreen,
+    secondary = DarkGreen,
+    background = Black,
 )
 
 private val lightColorScheme = lightColors(
-    primary = DarkPurple,
-    secondary = LightPurple,
+    primary = LightGreen,
+    secondary = DarkGreen,
+    background = Gray,
 )
 
 @Composable
@@ -29,7 +31,7 @@ fun AppTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = DarkPurple.toArgb()
+            window.statusBarColor = LightGreen.toArgb()
         }
     }
 
