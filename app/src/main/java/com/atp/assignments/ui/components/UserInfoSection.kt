@@ -34,6 +34,8 @@ import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import com.atp.assignments.R
 import java.util.Locale
 
@@ -41,117 +43,135 @@ import java.util.Locale
 @Composable
 fun UserInfoSection(modifier: Modifier = Modifier) {
 
-  Column(modifier = modifier) {
+    ConstraintLayout(modifier = modifier.fillMaxWidth()) {
 
-    Box {
+        val (box, card) = createRefs()
 
-      Card(
-        modifier = Modifier
-          .fillMaxWidth()
-          .padding(top = 36.dp), elevation = 5.dp
-      ) {
-        Column(
-          modifier = Modifier
-            .fillMaxWidth()
-            .padding(20.dp),
-          horizontalAlignment = Alignment.CenterHorizontally
+        Box(
+            modifier = Modifier.constrainAs(box) {
+                top.linkTo(parent.top)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                width = Dimension.fillToConstraints
+                height = Dimension.wrapContent
+            }
         ) {
-          Text(
-            modifier = Modifier.padding(top = 36.dp),
-            text = stringResource(id = R.string.sufyan_sattar),
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp
-          )
-          Text(text = stringResource(R.string.pakistan))
 
-          Spacer(modifier = Modifier.height(20.dp))
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 36.dp), elevation = 5.dp
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(20.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        modifier = Modifier.padding(top = 36.dp),
+                        text = stringResource(id = R.string.sufyan_sattar),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    )
+                    Text(text = stringResource(R.string.pakistan))
 
-          Button(modifier = Modifier
-            .clip(RoundedCornerShape(30.dp)),
-            onClick = {}) {
-            Text(
-              modifier = Modifier.padding(vertical = 6.dp, horizontal = 20.dp),
-              text = stringResource(R.string.follow).uppercase(Locale.ROOT),
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    Button(modifier = Modifier
+                        .clip(RoundedCornerShape(30.dp)),
+                        onClick = {}) {
+                        Text(
+                            modifier = Modifier.padding(vertical = 6.dp, horizontal = 20.dp),
+                            text = stringResource(R.string.follow).uppercase(Locale.ROOT),
+                        )
+                    }
+                }
+            }
+
+            Icon(
+                modifier = Modifier
+                    .size(72.dp)
+                    .align(Alignment.TopCenter)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colors.secondary),
+                painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                contentDescription = "User Info",
+                tint = Color.White
             )
-          }
         }
-      }
 
-      Icon(
-        modifier = Modifier
-          .size(72.dp)
-          .align(Alignment.TopCenter)
-          .clip(CircleShape)
-          .background(MaterialTheme.colors.secondary),
-        painter = painterResource(id = R.drawable.ic_launcher_foreground),
-        contentDescription = "User Info",
-        tint = Color.White
-      )
+        Card(
+            modifier = Modifier
+                .padding(top = 20.dp)
+                .constrainAs(card) {
+                    top.linkTo(box.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    width = Dimension.fillToConstraints
+                    height = Dimension.wrapContent
+                },
+            elevation = 5.dp
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(IntrinsicSize.Min)
+                    .padding(20.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "224",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    )
+                    Text(text = "Following")
+                }
+
+                Divider(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(1.dp),
+                    color = Color.Gray,
+                    thickness = 1.dp
+                )
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "48.6 K",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    )
+                    Text(text = "Followers")
+                }
+
+                Divider(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(1.dp),
+                    color = Color.Gray,
+                    thickness = 1.dp
+                )
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "3.2 M",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    )
+                    Text(text = "Likes")
+                }
+            }
+        }
+
     }
-
-    Card(
-      modifier = Modifier.padding(top = 20.dp),
-      elevation = 5.dp
-    ) {
-      Row(
-        modifier = Modifier
-          .fillMaxWidth()
-          .height(IntrinsicSize.Min)
-          .padding(20.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-      ) {
-
-        Column(
-          horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-          Text(
-            text = "224",
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp
-          )
-          Text(text = "Following")
-        }
-
-        Divider(
-          modifier = Modifier
-            .fillMaxHeight()
-            .width(1.dp),
-          color = Color.Gray,
-          thickness = 1.dp
-        )
-
-        Column(
-          horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-          Text(
-            text = "48.6 K",
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp
-          )
-          Text(text = "Followers")
-        }
-
-        Divider(
-          modifier = Modifier
-            .fillMaxHeight()
-            .width(1.dp),
-          color = Color.Gray,
-          thickness = 1.dp
-        )
-
-        Column(
-          horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-          Text(
-            text = "3.2 M",
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp
-          )
-          Text(text = "Likes")
-        }
-      }
-    }
-
-  }
 }
